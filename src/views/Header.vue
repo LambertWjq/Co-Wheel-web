@@ -1,0 +1,98 @@
+<script setup lang="ts">
+import { useSidebarStore } from "@/store/sidebar";
+import { ref } from 'vue';
+import {Expand, Search} from "@element-plus/icons-vue";
+
+const headerSearchInput = ref('');
+const sidebar = useSidebarStore();
+// 侧边栏折叠
+const collapseChange = () => {
+  sidebar.handleCollapse();
+}
+</script>
+
+<template>
+  <div class="wheel-header-div">
+    <div class="header-left">
+      <!-- 折叠按钮 -->
+      <div class="collapse-btn" @click="collapseChange">
+        <el-icon v-if="sidebar.collapse">
+          <Expand />
+        </el-icon>
+        <el-icon v-else>
+          <Fold />
+        </el-icon>
+      </div>
+      <div>
+        <a href="">
+          <img class="logo" src="../assets/logo.png"/>
+        </a>
+      </div>
+      <p>Wheel</p>
+    </div>
+    <div class="header-right">
+      <div class="header-search">
+        <el-input v-model="headerSearchInput" class="search-input" placeholder="Please input">
+          <template #prefix>
+            <el-icon class="el-icon__icon">
+              <Search />
+            </el-icon>
+          </template>
+        </el-input>
+      </div>
+      <div class="header-info">消息提醒</div>
+      <div class="header-user">用户中心</div>
+    </div>
+  </div>
+</template>
+
+<style scoped lang="scss">
+.wheel-header-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  .collapse-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    float: left;
+    padding: 0 21px;
+    cursor: pointer;
+  }
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  div {
+    display: flex;
+    justify-content: space-evenly;
+    min-width: 100px;
+    min-height: 20px;
+    margin:5px;
+    background-color: #bad1e5;
+  }
+  .header-search {
+    background: none;
+    .search-input {
+      height: 30px;
+      background: none;
+    }
+    .el-input__icon {
+      cursor: pointer;
+    }
+  }
+}
+</style>
