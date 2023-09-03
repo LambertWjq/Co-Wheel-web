@@ -1,13 +1,18 @@
 <script setup lang="ts">
-import { useSidebarStore } from "@/store/sidebar";
+import {useMenuSidebarStore, useUserSidebarStore} from "@/store/sidebar";
 import { ref } from 'vue';
 import {Expand, Search} from "@element-plus/icons-vue";
 
 const headerSearchInput = ref('');
-const sidebar = useSidebarStore();
-// 侧边栏折叠
-const collapseChange = () => {
-  sidebar.handleCollapse();
+const menuSidebar = useMenuSidebarStore();
+const userSidebar = useUserSidebarStore();
+// 菜单侧边栏折叠
+const menuCollapseChange = () => {
+  menuSidebar.handleCollapse();
+}
+// 用户侧边栏折叠
+const userCollapseChange = () => {
+  userSidebar.handleCollapse();
 }
 </script>
 
@@ -15,8 +20,8 @@ const collapseChange = () => {
   <div class="wheel-header-div">
     <div class="header-left">
       <!-- 折叠按钮 -->
-      <div class="collapse-btn" @click="collapseChange">
-        <el-icon v-if="sidebar.collapse">
+      <div class="collapse-btn" @click="menuCollapseChange">
+        <el-icon v-if="menuSidebar.collapse">
           <Expand />
         </el-icon>
         <el-icon v-else>
@@ -41,7 +46,9 @@ const collapseChange = () => {
         </el-input>
       </div>
       <div class="header-info">消息提醒</div>
-      <div class="header-user">用户中心</div>
+      <div class="header-user">
+        <div class="user-button" @click="userCollapseChange">用户中心</div>
+      </div>
     </div>
   </div>
 </template>
@@ -93,6 +100,10 @@ const collapseChange = () => {
     .el-input__icon {
       cursor: pointer;
     }
+  }
+  div.user-button {
+    margin: 0;
+    cursor: pointer;
   }
 }
 </style>
