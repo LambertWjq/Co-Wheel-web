@@ -1,30 +1,53 @@
 <script setup lang="ts">
-import ProjectCard from '@/components/card/ProjectCard.vue';
+import { defineComponent } from "vue";
+import ProjectCard, {type ProjectProps} from '@/components/card/ProjectCard.vue';
 import TimeCard from '@/components/card/TimeCard.vue';
+import RecommendCard from '@/components/card/RecommendCard.vue';
+
+const testProjectData: ProjectProps[] = [{
+  id: 1,
+  author: 'Author Name',
+  title: 'The Project',
+  time: 'update time',
+  description: ['Add the new file', 'Change the main board'],
+},
+  {
+    id: 2,
+    author: 'Author Name 2',
+    title: 'The Project 2',
+    time: 'update time',
+    description: ['Add the new file', 'Change the main board'],
+  },
+  {
+    id: 3,
+    author: 'Author Name 3',
+    title: 'The Project 2',
+    time: 'update time',
+    description: ['Add the new file', 'Change the main board'],
+  },
+];
+
 </script>
 
 <template>
-    <div class="contain">
-      <div class="project-card">
-        <ProjectCard></ProjectCard>
-        <ProjectCard></ProjectCard>
-        <ProjectCard></ProjectCard>
-      </div>
-      <div class="time-card">
-        <TimeCard></TimeCard>
-      </div>
+  <div class="contain">
+    <div>
+      <ProjectCard :list="testProjectData"></ProjectCard>
     </div>
+    <div class="time-card">
+      <TimeCard></TimeCard>
+      <RecommendCard></RecommendCard>
+      <RecommendCard></RecommendCard>
+      <RecommendCard></RecommendCard>
+    </div>
+  </div>
 </template>
 
 <style>
 .contain {
   display: flex;
   justify-content: space-between;
-}
-
-.project-card {
-  width: auto;
-  padding-bottom: 16px;
+  width: 100vh;
 }
 
 .time-card {
