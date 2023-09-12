@@ -1,18 +1,17 @@
 <script setup lang="ts">
-
 import Header from "@/views/Header.vue";
 import Sidebar from "@/components/Sidebar.vue";
 </script>
 
 <template>
-  <el-config-provider :locale="zhCn">
+  <el-config-provider>
     <div class="common-layout">
       <el-container class="container">
         <el-header>
           <Header />
         </el-header>
         <el-container>
-          <el-aside width="0px">
+          <el-aside width="200px">
             <Sidebar />
           </el-aside>
           <el-main class="background">
