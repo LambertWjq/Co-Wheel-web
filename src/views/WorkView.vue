@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { TabsPaneContext } from 'element-plus'
-import WorkProjectCard, {type WorkProjectProps} from "@/components/card/WorkProjectCard.vue";
+import WorkProjectCard, {type WorkProjectProps} from '@/components/card/WorkProjectCard.vue';
+import fileTable from '@/components/FileTable.vue';
 
 const activeName = ref('project')
 
@@ -15,7 +16,9 @@ const handleClick = (tab: TabsPaneContext, event: Event) => {
     <el-tab-pane label="项目" name="project">
       <WorkProjectCard list=""></WorkProjectCard>
     </el-tab-pane>
-    <el-tab-pane label="文件" name="file">File</el-tab-pane>
+    <el-tab-pane label="文件" name="file">
+      <file-table></file-table>
+    </el-tab-pane>
   </el-tabs>
 </template>
 
