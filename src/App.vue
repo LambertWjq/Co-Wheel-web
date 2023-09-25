@@ -11,7 +11,7 @@ import Sidebar from "@/components/Sidebar.vue";
           <Header />
         </el-header>
         <el-container>
-          <el-aside width="200px">
+          <el-aside width="0px">
             <Sidebar />
           </el-aside>
           <el-main class="background">

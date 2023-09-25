@@ -12,8 +12,35 @@ const menuItems = [
   },
   {
     icon: 'Calendar',
-    index: '/work',
-    title: '表格相关',
+    index: '/',
+    title: '问题',
+    permiss: '2',
+  },
+  {
+    icon: 'Calendar',
+    index: '/',
+    title: '推送请求',
+    permiss: '3',
+  },
+  {
+    icon: 'Calendar',
+    index: '/',
+    title: '讨论',
+    permiss: '4',
+  },
+];
+
+const repositoreisItems = [
+  {
+    icon: 'Odometer',
+    index: '/project',
+    title: '项目名称',
+    permiss: '1',
+  },
+  {
+    icon: 'Odometer',
+    index: '/project',
+    title: '项目名称',
     permiss: '2',
   },
 ];
@@ -30,6 +57,11 @@ const userItems = [
     index: '/work',
     title: '你的项目',
     permiss: '2',
+  },{
+    icon: 'Calendar',
+    index: '/school',
+    title: '你的班级',
+    permiss: '3',
   },
 ];
 
@@ -44,6 +76,7 @@ const userSidebar = useUserSidebarStore();
 
 <template>
   <div class="sidebar">
+    <!--  左侧抽屉 start  -->
     <el-drawer
         v-model="menuSidebar.collapse"
         direction="ltr"
@@ -77,8 +110,22 @@ const userSidebar = useUserSidebarStore();
             <template #title>{{ item.title }}</template>
           </el-menu-item>
         </template>
+        <template v-if="repositoreisItems.length > 0">
+          <el-divider />
+          <div class="left-sidebar-repositories">Repositories</div>
+          <template v-for="item2 in repositoreisItems" :key="item2.index">
+            <el-menu-item :index="item2.index" v-premiss="item2.permiss">
+              <el-icon>
+                <component :is="item2.icon"></component>
+              </el-icon>
+              <template #title>{{ item2.title }}</template>
+            </el-menu-item>
+          </template>
+        </template>
       </el-menu>
     </el-drawer>
+    <!--  左侧抽屉 end  -->
+    <!--  右侧抽屉 start -->
     <el-drawer
         v-model="userSidebar.collapse"
         direction="rtl"
@@ -114,6 +161,7 @@ const userSidebar = useUserSidebarStore();
         </template>
       </el-menu>
     </el-drawer>
+    <!--  右侧抽屉 end -->
   </div>
 </template>
 
@@ -168,6 +216,12 @@ const userSidebar = useUserSidebarStore();
   .sidebar-el-menu {
     padding: 0;
     margin: 0;
+  }
+  .left-sidebar-repositories {
+    margin-bottom: 10px;
+  }
+  .el-divider--horizontal {
+    margin: 10px 0;
   }
 }
 
