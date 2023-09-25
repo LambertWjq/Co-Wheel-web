@@ -10,7 +10,7 @@ const testProjectData: ProjectProps[] = [{
   title: 'The Project',
   time: 'update time',
   description: ['Add the new file', 'Change the main board'],
-},
+  },
   {
     id: 2,
     author: 'Author Name 2',
