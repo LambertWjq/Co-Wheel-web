@@ -9,6 +9,7 @@ const activeName = ref('project')
 const handleClick = (tab: TabsPaneContext, event: Event) => {
   console.log(tab, event)
 }
+
 </script>
 
 <template>
