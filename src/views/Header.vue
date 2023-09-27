@@ -3,6 +3,7 @@ import {useMenuSidebarStore, useUserSidebarStore} from "@/store/sidebar";
 import { ref } from 'vue';
 import {Expand, Search} from "@element-plus/icons-vue";
 
+
 const headerSearchInput = ref('');
 const menuSidebar = useMenuSidebarStore();
 const userSidebar = useUserSidebarStore();
@@ -45,15 +46,23 @@ const userCollapseChange = () => {
           </template>
         </el-input>
       </div>
-      <div class="header-info">消息提醒</div>
-      <div class="header-user">
-        <div class="user-button" @click="userCollapseChange">用户中心</div>
+      <div class="top-button">
+        <el-button icon="Comment" circle>
+        </el-button>
+        <el-button type="primary" icon="Avatar" circle @click="userCollapseChange">
+        </el-button>
       </div>
+
     </div>
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
+.top-button {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
 .wheel-header-div {
   display: flex;
   align-items: center;
@@ -92,18 +101,12 @@ const userCollapseChange = () => {
     background-color: #bad1e5;
   }
   .header-search {
+    margin-right: 4px;
     background: none;
     .search-input {
       height: 30px;
       background: none;
     }
-    .el-input__icon {
-      cursor: pointer;
-    }
-  }
-  div.user-button {
-    margin: 0;
-    cursor: pointer;
   }
 }
 </style>
