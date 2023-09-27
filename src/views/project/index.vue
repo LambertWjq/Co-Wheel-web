@@ -45,6 +45,12 @@ const testMemberData: MemberProps[] = [{
       <memberList :list="testMemberData"></memberList>
     </el-tab-pane>
   </el-tabs>
+  <el-button
+      style="position: absolute; right: 18px;top: 100px"
+      icon="CirclePlus"
+  >
+    添加
+  </el-button>
 </template>
 
 <style scoped>
