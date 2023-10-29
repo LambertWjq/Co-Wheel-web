@@ -1,22 +1,3 @@
-<!--<template>-->
-<!--  <el-table-->
-<!--    :data="tableData"-->
-<!--    style="width: 100%"-->
-<!--    :show-header="false"-->
-<!--  >-->
-<!--    <el-table-column label="Avatar" min-width="10%">-->
-<!--      <div class="block">-->
-<!--        <el-avatar :size="50" :src="circleUrl" />-->
-<!--      </div>-->
-<!--    </el-table-column>-->
-<!--    <el-table-column label="Name" min-width="80%">-->
-<!--      <p style="font-weight: bold;font-size: 18px;">Username</p>-->
-<!--      <p>100000000@qq.com</p>-->
-<!--    </el-table-column>-->
-<!--    <el-table-column prop="address" label="Address" />-->
-<!--  </el-table>-->
-<!--</template>-->
-
 <template>
   <div class="member" v-for="member in list" :key="member.id">
     <div class="avatar">

@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import fileTable from '@/components/FileTable.vue';
 import memberList, {type MemberProps } from './MemberList.vue'
+import MemberTable from "./MemberView.vue";
 
 const activeName = ref('file')
 
@@ -41,8 +42,8 @@ const testMemberData: MemberProps[] = [{
     <el-tab-pane label="文件" name="file">
       <file-table></file-table>
     </el-tab-pane>
-    <el-tab-pane label="成员" name="member">
-      <memberList :list="testMemberData"></memberList>
+    <el-tab-pane label="团队" name="member">
+      <MemberTable></MemberTable>
     </el-tab-pane>
   </el-tabs>
   <el-button
